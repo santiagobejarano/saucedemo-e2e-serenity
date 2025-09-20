@@ -46,9 +46,10 @@ Esto descargará todas las dependencias necesarias.
    ```
    build/reports/tests/test/index.html
    build/reports/serenity/index.html
+   target/site/serenity/index.html
    ```
 
-Abre cualquiera de estos archivos en un navegador para visualizar los resultados.
+Abre cualquiera de estos archivos en un navegador para visualizar los resultados. El reporte en `target/site/serenity/index.html` es el más completo: incluye el detalle de los escenarios, pasos ejecutados y capturas de pantalla.
 
 ## 📂 Estructura del Proyecto
 
@@ -97,23 +98,25 @@ src
 
 - El archivo `serenity.conf` ya está configurado para usar Chrome con los parámetros necesarios.
 - En caso de errores con el navegador, asegúrate de que Chrome esté actualizado y que el `chromedriver` descargado sea compatible (Serenity lo maneja automáticamente).
-- Para eliminar alertas inesperadas durante la ejecución, se configuró la opción `unhandledPromptBehaviour = dismiss`.
+- Para eliminar alertas inesperadas durante la ejecución, se configuró `unhandledPromptBehaviour = dismiss`, lo que garantiza que no se interrumpa el flujo.
 
 ## 📊 Reportes
 
 - **Reporte estándar de Gradle:**
   - `build/reports/tests/test/index.html`
-- **Reporte enriquecido de Serenity:**
+- **Reporte enriquecido de Serenity (build):**
   - `build/reports/serenity/index.html`
+- **Reporte completo de Serenity (target):**
+  - `target/site/serenity/index.html`
 
-El reporte de Serenity incluye capturas de pantalla paso a paso y es el recomendado para la revisión.
+El reporte en `target/site/serenity/index.html` es el recomendado, ya que incluye capturas de pantalla en cada paso, métricas de ejecución y detalles de los escenarios.
 
 ## 📌 Conclusiones
 
 - La prueba E2E automatiza correctamente el flujo de compra en SauceDemo.
 - Se implementó el patrón **Screenplay** para un diseño modular, reutilizable y mantenible.
 - Los datos de prueba se cargan dinámicamente desde archivos JSON.
-- Los reportes de Serenity proveen trazabilidad completa y visual.
+- Los reportes de Serenity proveen trazabilidad completa y visual, con capturas en cada paso.
 
 ---
 
