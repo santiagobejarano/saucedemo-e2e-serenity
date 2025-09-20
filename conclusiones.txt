@@ -1,0 +1,31 @@
+CONCLUSIONES - Ejercicio E2E SauceDemo
+--------------------------------------
+
+1. Automatización del flujo E2E:
+   - Se logró automatizar de manera completa el flujo de compra en el sitio web SauceDemo utilizando SerenityBDD con el patrón Screenplay.
+   - El flujo contempla: autenticación, selección de productos, visualización del carrito, ingreso de datos de checkout y verificación del mensaje final de confirmación.
+
+2. Manejo de datos externos:
+   - Los datos de entrada (productos y datos de usuario) se parametrizaron a través de archivos JSON, cumpliendo con la instrucción de usar fuentes externas.
+   - Esto facilita la reutilización de pruebas y la variación de escenarios sin necesidad de modificar el código.
+
+3. Configuración técnica:
+   - Se trabajó con JDK 17.0.16, Gradle 7.6.1 e IntelliJ IDEA como IDE principal.
+   - SerenityBDD en su versión 3.6.12 junto con Cucumber 7.11.0 fueron integrados de manera exitosa.
+   - La configuración de ChromeDriver se resolvió mediante autodownload, evitando problemas de compatibilidad con la versión de Google Chrome instalada.
+
+4. Reportes:
+   - Los reportes se generan automáticamente en formato HTML a través de SerenityBDD y Cucumber.
+   - Estos reportes permiten visualizar de forma detallada cada paso de la ejecución, así como evidencias en forma de capturas de pantalla.
+
+5. Retos encontrados:
+   - Se presentaron problemas de compatibilidad entre versiones de Chrome y ChromeDriver, los cuales se solucionaron configurando la descarga automática de drivers.
+   - Durante la ejecución inicial se encontraron errores en los locators (selectores de elementos), los cuales fueron ajustados priorizando selectores por ID o clase, evitando el uso innecesario de XPath.
+   - Se eliminó una alerta emergente no requerida que interrumpía el flujo normal de la prueba.
+
+6. Valor agregado:
+   - Se documentó detalladamente en el archivo README.md todos los prerequisitos, dependencias, comandos de instalación y pasos de ejecución.
+   - Se estructuró el proyecto siguiendo buenas prácticas de automatización (Screenplay Pattern), lo cual garantiza escalabilidad y mantenibilidad.
+
+CONCLUSIÓN GENERAL:
+La implementación cumple con los requisitos planteados en el ejercicio, garantizando que cualquier evaluador pueda reproducir la prueba E2E de SauceDemo desde cero. El proyecto refleja buenas prácticas en la automatización de pruebas, manejo de datos externos, uso de reportes y documentación clara.
