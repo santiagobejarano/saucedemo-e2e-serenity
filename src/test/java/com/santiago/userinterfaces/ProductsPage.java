@@ -3,6 +3,7 @@ package com.santiago.userinterfaces;
 import net.serenitybdd.screenplay.targets.Target;
 
 public class ProductsPage {
+
     public static final Target CART_ICON =
             Target.the("cart icon").locatedBy("#shopping_cart_container");
 

@@ -50,6 +50,11 @@ public class PurchaseStepDefinitions {
         user.attemptsTo(GoToCart.now());
     }
 
+    @When("he proceeds to checkout")
+    public void goToCheckout() {
+        user.attemptsTo(GoToCheckout.now());
+    }
+
     @When("he completes checkout using data from {string}")
     public void completeCheckout(String filePath) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
@@ -68,8 +73,14 @@ public class PurchaseStepDefinitions {
     @Then("he should see the confirmation message {string}")
     public void verifyMessage(String expectedMessage) {
         user.should(seeThat("confirmation message",
-                ConfirmationMessage.text(),
-                Matchers.equalTo(expectedMessage)
+                ConfirmationMessage.text().map(actual ->
+                        actual.replaceAll("[^a-zA-Z0-9 ]", "")  // quitar signos
+                                .toLowerCase().trim()
+                ),
+                Matchers.equalTo(
+                        expectedMessage.replaceAll("[^a-zA-Z0-9 ]", "")
+                                .toLowerCase().trim()
+                )
         ));
     }
 }

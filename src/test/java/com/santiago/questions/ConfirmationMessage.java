@@ -1,9 +1,9 @@
 package com.santiago.questions;
 
-import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
+import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.questions.Text;
-import com.santiago.userinterfaces.CheckoutPage;
+import com.santiago.userinterfaces.ConfirmationPage;
 
 public class ConfirmationMessage implements Question<String> {
 
@@ -13,6 +13,6 @@ public class ConfirmationMessage implements Question<String> {
 
     @Override
     public String answeredBy(Actor actor) {
-        return Text.of(CheckoutPage.CONFIRMATION_MESSAGE).answeredBy(actor).trim();
+        return Text.of(ConfirmationPage.CONFIRMATION_MESSAGE).answeredBy(actor).trim();
     }
 }
