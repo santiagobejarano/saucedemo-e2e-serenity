@@ -1,7 +1,19 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath 'net.serenity-bdd:serenity-gradle-plugin:4.0.1'
+    }
+}
+
 plugins {
     id 'java'
     id 'idea'
 }
+
+apply plugin: 'net.serenity-bdd.serenity-gradle-plugin'
 
 group = 'com.santiago'
 version = '1.0.0'
@@ -42,4 +54,6 @@ test {
     systemProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags", "@purchase")
 
     systemProperty "cucumber.plugin", "pretty, json:build/reports/cucumber/cucumber.json"
+
+    finalizedBy aggregate
 }
